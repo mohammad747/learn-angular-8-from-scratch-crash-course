@@ -35,3 +35,24 @@
     <p>The click counter <strong>Is Not Greater</strong> than 4.</p>
   </ng-template>
 </div>
+<!-- let's learn about how to use the above concepts with class -->
+<!-- don't forget to create the active class in your scss file -->
+<div class="play-container" [class.active]="clickCounter > 4">
+  <div *ngIf="clickCounter > 4; then isGreater else isNotGreater"></div>
+  <ng-template #isGreater>
+    <p>The click counter <strong>Is Greater</strong> thant 4.</p>
+  </ng-template>
+  <ng-template #isNotGreater>
+    <p>The click counter <strong>Is Not Greater</strong> than 4.</p>
+  </ng-template>
+</div>
+<!-- then how to use multiple classes  -->
+<div class="play-container" [ngClass]="setClasses()">
+  <div *ngIf="clickCounter > 4; then isGreater else isNotGreater"></div>
+  <ng-template #isGreater>
+    <p>The click counter <strong>Is Greater</strong> thant 4.</p>
+  </ng-template>
+  <ng-template #isNotGreater>
+    <p>The click counter <strong>Is Not Greater</strong> than 4.</p>
+  </ng-template>
+</div>
