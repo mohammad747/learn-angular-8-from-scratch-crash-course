@@ -11,3 +11,27 @@
     <strong>You said: </strong> {{ name }}
   </p>
 </div>
+
+<!-- The method that we use to style this div here is just for one css property but what if we want to use multiple properties => look for number 2 -->
+<div class="play-container" [style.background-color]="clickCounter > 4 ? 'yellow' : 'lightgray'">
+  <div *ngIf="clickCounter > 4; then isGreater else isNotGreater"></div>
+  <ng-template #isGreater>
+    <p>The click counter <strong>Is Greater</strong> thant 4.</p>
+  </ng-template>
+  <ng-template #isNotGreater>
+    <p>The click counter <strong>Is Not Greater</strong> than 4.</p>
+  </ng-template>
+</div>
+<!-- 2  -->
+<div class="play-container" [ngStyle]="{
+  'background-color' : clickCounter > 4 ? 'yellow' : 'lightgray',
+  'border' : clickCounter > 4 ? '4px solid black' : 'none'
+}">
+  <div *ngIf="clickCounter > 4; then isGreater else isNotGreater"></div>
+  <ng-template #isGreater>
+    <p>The click counter <strong>Is Greater</strong> thant 4.</p>
+  </ng-template>
+  <ng-template #isNotGreater>
+    <p>The click counter <strong>Is Not Greater</strong> than 4.</p>
+  </ng-template>
+</div>
